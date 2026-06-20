@@ -311,7 +311,7 @@
       position: absolute;
       left: 0;
       right: 0;
-      top: 78px;
+      top: 118px;
       height: 2px;
       background: repeating-linear-gradient(90deg, rgba(255, 107, 107, .85) 0 14px, transparent 14px 24px);
       pointer-events: none;
@@ -518,7 +518,7 @@
     let mergeLock = new Set();
 
     function radiusFor(index) {
-      return 17 + index * 2.4;
+      return 24 + index * 3.8;
     }
 
     function randomSpawnIndex() {
@@ -645,7 +645,7 @@
       canDrop = false;
       const radius = radiusFor(currentIndex);
       const x = Math.min(Math.max(aimX, radius + 10), width - radius - 10);
-      const atom = createAtom(currentIndex, x, 34);
+      const atom = createAtom(currentIndex, x, 42);
       Composite.add(engine.world, atom);
       currentIndex = nextIndex;
       nextIndex = randomSpawnIndex();
@@ -727,7 +727,7 @@
       for (const body of bodies) {
         if (body.label !== "atom") continue;
         if (now - body.plugin.bornAt < 2500) continue;
-        if (body.position.y - radiusFor(body.plugin.elementIndex) < 78 && Math.abs(body.velocity.y) < 0.35) {
+        if (body.position.y - radiusFor(body.plugin.elementIndex) < 118 && Math.abs(body.velocity.y) < 0.35) {
           endGame();
           return;
         }
